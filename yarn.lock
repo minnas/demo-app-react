@@ -946,7 +946,7 @@ react-is@^18.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
-react-jss@*, react-jss@^10.9.2:
+react-jss@*:
   version "10.9.2"
   resolved "https://registry.yarnpkg.com/react-jss/-/react-jss-10.9.2.tgz#3a98ca0cf2698b0e65f7219f018bf1a8f4c1a4d0"
   integrity sha512-f7azcJ3GhFXa3vNVF9IMN5ja/u1rEmyRhUiPa9KRdnnZ4wdN8xfCs5LShanRBslLXlD+OFi1Zzz66PwXSkd41w==

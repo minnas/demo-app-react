@@ -9,23 +9,31 @@ import Button from "@Components/tools/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@Store/store";
 import { addBookmark } from "@Store/dataSlices";
+import Toast from "@Components/tools/Toast";
 
 const FakeTodos = (): ReactElement => {
   const stylesContent = useContentStyles();
   const dispatch = useDispatch();
   const bookmarks = useSelector((state: RootState) => state.bookmarks);
-
+  const [toastVisible, setToastVisible] = useState(false);
   const [todos, setTodos] = useState([] as Item[]);
   const [loading, setLoading] = useState(false);
   const profiIcon = faUserSecret;
 
   const add = (item: Item) => {
+    if (bookmarks.find((b) => b.externalId === item.id)) {
+      return;
+    }
     dispatch(
       addBookmark({
         ...(item as RawItem),
         externalId: item.id,
       } as Bookmark)
     );
+    setToastVisible(true);
+    setTimeout(() => {
+      setToastVisible(false);
+    }, 800);
   };
 
   const body = (item: Item) => (
@@ -38,7 +46,11 @@ const FakeTodos = (): ReactElement => {
       }}
     >
       <span>{item.title}</span>
-      <Button icon={faPlus} onClick={() => add(item)} />
+      <Button
+        disabled={bookmarks.find((b) => b.externalId === item.id) != undefined}
+        icon={faPlus}
+        onClick={() => add(item)}
+      />
     </div>
   );
 
@@ -59,6 +71,7 @@ const FakeTodos = (): ReactElement => {
 
   return (
     <div className={stylesContent.content}>
+      {toastVisible ? <Toast message="Saved !" /> : ""}
       {loading ? <Spinner /> : ""}
       {todos.map((item: Item, index: number) => (
         <Card key={index} {...{ ...item, body: body(item), profiIcon }} />

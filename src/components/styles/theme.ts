@@ -2,11 +2,14 @@ export const colors = {
   highlightColor: "rgba(148, 104, 254, 1)",
   highlightColor8: "rgba(148, 104, 254, .8)",
   highlightColor6: "rgba(148, 104, 254, .6)",
+  highlightColor5: "rgba(148, 104, 254, .5)",
   highlightColor3: "rgba(148, 104, 254, .3)",
+  highlightColor2: "rgba(148, 104, 254, .2)",
   textColor: "rgba(255, 255, 255, 1)",
   btnColor: "rgba(255, 255, 255, 1)",
   shadowColor6: "rgba(0, 0, 0, .6)",
   shadowColor8: "rgba(0, 0, 0, .8)",
+  bgColor: "#242424",
 };
 export const layoutFlexRow = {
   display: "flex",

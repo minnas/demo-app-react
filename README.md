@@ -8,7 +8,7 @@
 
 This is a Small app done with React + Typescript + Vite.
 The app has some dummy component for testing some features.🦄
-The work continues 
+The work continues
 
 To start, run these commands
 
@@ -20,4 +20,3 @@ Or in Docker 🐳
 
 1. docker compose up
 2. open http://localhost:3000/ in browser
-
