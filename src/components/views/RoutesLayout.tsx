@@ -8,7 +8,7 @@ import FakeTodos from "./FakeTodos";
 import FakeBookmarks from "./FakeBookmarks";
 import Footer from "./Footer";
 
-const ViewLayout = () => {
+const RoutesLayout = () => {
   const theme = useTheme<Itheme>();
   const stylesContent = useLayoutStyles(theme);
 
@@ -26,4 +26,4 @@ const ViewLayout = () => {
     </div>
   );
 };
-export default ViewLayout;
+export default RoutesLayout;
