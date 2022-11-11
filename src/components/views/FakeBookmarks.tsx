@@ -2,11 +2,7 @@ import { ReactElement, useState } from "react";
 import { useContentStyles } from "./styles";
 import { Item } from "@Types/types";
 import Card from "@Components/tools/Card";
-import {
-  faPlus,
-  faTimes,
-  faUserGraduate,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faUserGraduate } from "@fortawesome/free-solid-svg-icons";
 import Button from "@Components/tools/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@Store/store";

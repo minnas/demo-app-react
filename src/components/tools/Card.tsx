@@ -33,9 +33,9 @@ const Card = ({ title, body, profiIcon }: CardProps): ReactElement => {
       show
         ? {}
         : {
-            backgroundColor: theme.highlightColor3,
-            border: `2px dashed ${theme.highlightColor}`,
-            boxShadow: `-1rem 0 0.4rem ${theme.highlightColor}`,
+            backgroundColor: theme?.highlightColor3,
+            border: `2px dashed ${theme?.highlightColor}`,
+            boxShadow: `-1rem 0 0.4rem ${theme?.highlightColor}`,
             margin: "1rem 0",
           }
     );

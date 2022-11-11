@@ -20,3 +20,7 @@ export type Bookmark = SavedItem & {
 export type Todo = SavedItem & {
   done?: boolean;
 };
+
+export type Theme = {
+  theme: "light" | "dark";
+};

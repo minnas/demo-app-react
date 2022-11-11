@@ -18,7 +18,7 @@ export const useFooterStyles = createUseStyles<RuleFooterNames, Itheme>({
     justifyContent: "space-evenly",
     padding: "1rem 2rem",
     flexWrap: "wrap",
-    color: theme.highlightColor,
+    color: theme?.highlightColor,
     marginTop: "auto",
   }),
 });
@@ -28,8 +28,8 @@ export const useHeaderStyles = createUseStyles<RuleHeaderNames, Itheme>({
     ...layoutFlexRow,
     justifyContent: "center",
     gridColumnGap: "2rem",
-    borderBottom: `4px dashed ${theme.highlightColor8}`,
-    color: theme.highlightColor,
+    borderBottom: `4px dashed ${theme?.highlightColor8}`,
+    color: theme?.highlightColor,
   }),
 });
 export const useContentStyles = createUseStyles<RuleContentNames, Itheme>({
@@ -45,7 +45,7 @@ export const useContentStyles = createUseStyles<RuleContentNames, Itheme>({
 export const useTitleStyles = createUseStyles<RuleTitleNames, Itheme>({
   title: (theme) => ({
     fontSize: "2rem",
-    color: theme.highlightColor,
+    color: theme?.highlightColor,
   }),
 });
 export const useItemStyles = createUseStyles<RuleItemNames, Itheme>({
@@ -53,7 +53,7 @@ export const useItemStyles = createUseStyles<RuleItemNames, Itheme>({
     ...layoutFlexRow,
     transition: "all 0.25s ease",
     padding: "1rem 2rem",
-    color: theme.highlightColor,
+    color: theme?.highlightColor,
     fontSize: "2rem",
     lineHeight: "2rem",
     cursor: "pointer",
@@ -61,8 +61,8 @@ export const useItemStyles = createUseStyles<RuleItemNames, Itheme>({
 });
 export const useLayoutStyles = createUseStyles<RuleLayoutNames, Itheme>({
   layout: (theme) => ({
-    color: theme.highlightColor,
-    backgroundColor: theme.bgColor,
+    color: theme?.highlightColor,
+    backgroundColor: theme?.bgColor,
     display: "flex",
     flexDirection: "column",
     width: "100vw",

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
-import { Bookmark, Todo } from "@Types/types";
+import { Bookmark, Theme, Todo } from "@Types/types";
 
 const todoSlice = createSlice({
   name: "todos",
@@ -41,11 +41,22 @@ const bookmarkSlice = createSlice({
     },
   },
 });
+const themeSlice = createSlice({
+  name: "theme",
+  initialState: { theme: "dark" } as Theme,
+  reducers: {
+    toggle: (state) => {
+      state.theme = state.theme === "dark" ? "light" : "dark";
+    },
+  },
+});
 
 /**reducers */
 export const myTodoReducer = todoSlice.reducer;
 export const bookmarkReducer = bookmarkSlice.reducer;
+export const themeReducer = themeSlice.reducer;
 /**actions */
 export const { add, update, remove } = todoSlice.actions;
+export const { toggle } = themeSlice.actions;
 export const { addBookmark, updateBookmark, removeBookmark } =
   bookmarkSlice.actions;
