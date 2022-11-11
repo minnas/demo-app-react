@@ -40,11 +40,7 @@ const Card = ({ title, body, profiIcon }: CardProps): ReactElement => {
       style={styles}
     >
       <FontAwesomeIcon icon={profiIcon || faUserNinja} size="lg" />
-      {show ? (
-        <span className={stylesTitle.title}>{title}</span>
-      ) : (
-        <span className={stylesTitle.title}>{body}</span>
-      )}
+      <span className={stylesTitle.title}>{show ? title : body}</span>
       <FontAwesomeIcon className={stylesTitle.title} icon={icon} size="lg" />
     </div>
   );
