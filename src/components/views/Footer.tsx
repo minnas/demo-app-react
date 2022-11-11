@@ -16,11 +16,16 @@ const Footer = (): ReactElement => {
     console.log("Go to my page " + item.path);
     navigate(item.path);
   };
-  
+
   return (
     <div className={styles.footer}>
       {pages.map((item: Page, index: number) => (
-        <Button icon={item.icon} key={index} onClick={() => goToPage(item)} disabled={location.pathname === item.path}/>
+        <Button
+          icon={item.icon}
+          key={index}
+          onClick={() => goToPage(item)}
+          disabled={location.pathname === item.path}
+        />
       ))}
     </div>
   );

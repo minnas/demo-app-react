@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
-import { useContentStyles } from "./styles";
+import { useContentStyles, useListItemStyles } from "./styles";
 import { ApiType, search } from "@Api/api";
 import { Bookmark, Item, RawItem } from "@Types/types";
 import Spinner from "@Components/tools/Spinner";
@@ -20,6 +20,7 @@ import { Itheme } from "@Components/styles/theme";
 const FakeTodos = (): ReactElement => {
   const theme = useTheme<Itheme>();
   const stylesContent = useContentStyles(theme);
+  const stylesItem = useListItemStyles(theme);
   const dispatch = useDispatch();
   const bookmarks = useSelector((state: RootState) => state.bookmarks);
   const [toastVisible, setToastVisible] = useState(false);
@@ -60,14 +61,7 @@ const FakeTodos = (): ReactElement => {
     bookmarks.find((b) => b.externalId === item.id) != undefined;
 
   const body = (item: Item) => (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gridColumnGap: "0.5rem",
-      }}
-    >
+    <div className={stylesItem.listItem}>
       <span>{item.title}</span>
       <Button
         icon={inBookmarks(item) ? faMinus : faPlus}

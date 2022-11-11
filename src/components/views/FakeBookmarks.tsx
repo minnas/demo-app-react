@@ -1,5 +1,5 @@
 import { ReactElement, useState } from "react";
-import { useContentStyles } from "./styles";
+import { useContentStyles, useListItemStyles } from "./styles";
 import { Item } from "@Types/types";
 import Card from "@Components/tools/Card";
 import { faTimes, faUserGraduate } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +14,7 @@ import { Itheme } from "@Components/styles/theme";
 const FakeTodos = (): ReactElement => {
   const theme = useTheme<Itheme>();
   const stylesContent = useContentStyles(theme);
+  const stylesItem = useListItemStyles(theme);
   const [toastVisible, setToastVisible] = useState(false);
   const dispatch = useDispatch();
   const bookmarks = useSelector((state: RootState) => state.bookmarks);
@@ -28,14 +29,7 @@ const FakeTodos = (): ReactElement => {
   };
 
   const body = (item: Item) => (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gridColumnGap: "0.5rem",
-      }}
-    >
+    <div className={stylesItem.listItem}>
       <span>{item.title}</span>
       <Button
         icon={faTimes}

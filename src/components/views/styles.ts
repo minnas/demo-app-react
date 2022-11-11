@@ -11,6 +11,7 @@ type RuleContentNames = "content";
 type RuleItemNames = "item";
 type RuleTitleNames = "title";
 type RuleLayoutNames = "layout";
+type RuleListItemNames = "listItem";
 
 export const useFooterStyles = createUseStyles<RuleFooterNames, Itheme>({
   footer: (theme) => ({
@@ -67,5 +68,10 @@ export const useLayoutStyles = createUseStyles<RuleLayoutNames, Itheme>({
     flexDirection: "column",
     width: "100vw",
     height: "100vh",
+  }),
+});
+export const useListItemStyles = createUseStyles<RuleListItemNames, Itheme>({
+  listItem: (theme) => ({
+    ...layoutFlexRow,
   }),
 });
