@@ -8,8 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { useItemStyles, useTitleStyles } from "@Components/views/styles";
-import { colors } from "@Components/styles/theme";
+import { colors, Itheme } from "@Components/styles/theme";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { useTheme } from "react-jss";
 
 export type CardProps = {
   title?: string;
@@ -18,8 +19,9 @@ export type CardProps = {
 };
 
 const Card = ({ title, body, profiIcon }: CardProps): ReactElement => {
-  const stylesItem = useItemStyles();
-  const stylesTitle = useTitleStyles();
+  const theme = useTheme<Itheme>();
+  const stylesItem = useItemStyles(theme);
+  const stylesTitle = useTitleStyles(theme);
 
   const [show, setShow] = useState(true);
   const [icon, setIcon] = useState(faEnvelope);

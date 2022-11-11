@@ -3,9 +3,12 @@ import { useFooterStyles } from "./styles";
 import { Page, pages } from "@Api/api";
 import Button from "@Components/tools/Button";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "react-jss";
+import { Itheme } from "@Components/styles/theme";
 
 const Footer = (): ReactElement => {
-  const styles = useFooterStyles();
+  const theme = useTheme<Itheme>();
+  const styles = useFooterStyles(theme);
   const navigate = useNavigate();
 
   const goToPage = (item: Page) => {

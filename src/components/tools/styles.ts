@@ -1,68 +1,56 @@
+import { Itheme, layoutFlexRow } from "@Components/styles/theme";
 import { createUseStyles } from "react-jss";
-import { Styles } from "jss";
-import { colors, layoutFlexRow } from "@Components/styles/theme";
 
-export type ButtonClassNames = "button";
-export type ButtonStyles = Styles<ButtonClassNames>;
+type RuleButtonNames = "button";
+type RuleSpinnerNames = "spinner";
+type RuleToastNames = "toast";
 
-export type SpinnerClassNames = "spinner";
-export type SpinnerStyles = Styles<SpinnerClassNames>;
-
-export type ToastClassNames = "toast";
-export type ToastStyles = Styles<ToastClassNames>;
-
-const getButtonStyles: ButtonStyles = {
-  button: () => ({
+export const useButtonStyles = createUseStyles<RuleButtonNames, Itheme>({
+  button: (theme) => ({
     ...layoutFlexRow,
     padding: "1rem 1.2rem",
-    border: `1px solid ${colors.highlightColor}`,
+    border: `1px solid ${theme.highlightColor}`,
     borderRadius: "15px",
     cursor: "pointer",
     transition: "all 0.25s ease",
     backgroundColor: "transparent",
-    color: colors.highlightColor,
+    color: theme.highlightColor,
     fontSize: "1.6rem",
     "&:hover": {
-      color: colors.highlightColor6,
+      color: theme.highlightColor6,
       cursor: "pointer",
     },
     "&[disabled]": {
       cursor: "not-allowed",
-      backgroundColor: colors.highlightColor3,
+      backgroundColor: theme.highlightColor3,
     },
   }),
-};
-
-const getSpinnerStyles: SpinnerStyles = {
-  spinner: () => ({
+});
+export const useSpinnerStyles = createUseStyles<RuleSpinnerNames, Itheme>({
+  spinner: (theme) => ({
     animation: "spin infinite 5s linear",
-    color: colors.highlightColor,
+    color: theme.highlightColor,
     fontSize: "10rem",
     position: "fixed",
     left: "45vw",
     top: "35vh",
     zIndex: 99,
   }),
-};
-
-const getToastStyles: ToastStyles = {
-  toast: () => ({
+});
+export const useToastStyles = createUseStyles<RuleToastNames, Itheme>({
+  toast: (theme) => ({
     ...layoutFlexRow,
     transition: "all 0.25s ease",
-    color: colors.bgColor,
-    backgroundColor: colors.highlightColor6,
+    color: theme.bgColor,
+    backgroundColor: theme.highlightColor6,
     fontSize: "2.5rem",
     position: "fixed",
     left: "40vw",
     top: "15vh",
-    border: `2px dashed ${colors.highlightColor}`,
+    border: `2px dashed ${theme.highlightColor}`,
     zIndex: 99,
     padding: "1.5rem 2rem",
     fontWeight: "600",
     borderRadius: "10px",
   }),
-};
-
-export const useButtonStyles = createUseStyles(getButtonStyles);
-export const useSpinnerStyles = createUseStyles(getSpinnerStyles);
-export const useToastStyles = createUseStyles(getToastStyles);
+});

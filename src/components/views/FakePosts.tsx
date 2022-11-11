@@ -5,9 +5,12 @@ import { Item } from "@Types/types";
 import Spinner from "@Components/tools/Spinner";
 import Card from "@Components/tools/Card";
 import { faUserNinja } from "@fortawesome/free-solid-svg-icons";
+import { useTheme } from "react-jss";
+import { Itheme } from "@Components/styles/theme";
 
 const FakePosts = (): ReactElement => {
-  const stylesContent = useContentStyles();
+  const theme = useTheme<Itheme>();
+  const stylesContent = useContentStyles(theme);
   const [posts, setPosts] = useState([] as Item[]);
   const [loading, setLoading] = useState(false);
   const profiIcon = faUserNinja;

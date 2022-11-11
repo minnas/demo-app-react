@@ -12,9 +12,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@Store/store";
 import { removeBookmark } from "@Store/dataSlices";
 import Toast from "@Components/tools/Toast";
+import { useTheme } from "react-jss";
+import { Itheme } from "@Components/styles/theme";
 
 const FakeTodos = (): ReactElement => {
-  const stylesContent = useContentStyles();
+  const theme = useTheme<Itheme>();
+  const stylesContent = useContentStyles(theme);
   const [toastVisible, setToastVisible] = useState(false);
   const dispatch = useDispatch();
   const bookmarks = useSelector((state: RootState) => state.bookmarks);

@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { useToastStyles } from "./styles";
 import { faMagicWandSparkles } from "@fortawesome/free-solid-svg-icons";
+import { useTheme } from "react-jss";
+import { Itheme } from "@Components/styles/theme";
 
 export type ToastProps = {
   icon?: IconProp;
@@ -10,7 +12,8 @@ export type ToastProps = {
 };
 
 const Toast = ({ icon, message }: ToastProps): ReactElement => {
-  const styles = useToastStyles();
+  const theme = useTheme<Itheme>();
+  const styles = useToastStyles(theme);
 
   return (
     <div className={styles.toast}>

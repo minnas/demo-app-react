@@ -1,3 +1,5 @@
+import { Tracing } from "trace_events";
+
 export const colors = {
   highlightColor: "rgba(148, 104, 254, 1)",
   highlightColor8: "rgba(148, 104, 254, .8)",
@@ -23,4 +25,20 @@ export const layoutFlexColumn = {
   flexDirection: "column",
   justifyContent: "center",
   gridRowCap: "0.5rem",
+};
+export interface Itheme {
+  highlightColor: string;
+  highlightColor8: string;
+  highlightColor6: string;
+  highlightColor5: string;
+  highlightColor3: string;
+  highlightColor2: string;
+  textColor: string;
+  btnColor: string;
+  shadowColor6: string;
+  shadowColor8: string;
+  bgColor: string;
+}
+export const theme: Itheme = {
+  ...colors,
 };

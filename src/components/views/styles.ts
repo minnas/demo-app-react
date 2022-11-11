@@ -2,43 +2,39 @@ import { createUseStyles } from "react-jss";
 import { Styles } from "jss";
 import {
   colors,
+  Itheme,
   layoutFlexColumn,
   layoutFlexRow,
 } from "@Components/styles/theme";
 
-type FooterClassNames = "footer";
-type FooterStyles = Styles<FooterClassNames>;
-type HeaderClassNames = "header";
-type HeaderStyles = Styles<HeaderClassNames>;
-type ContentClassNames = "content";
-type ContentStyles = Styles<ContentClassNames>;
-type TitleClassNames = "title";
-type TitleStyles = Styles<TitleClassNames>;
-type ItemClassNames = "item";
-type ItemStyles = Styles<ItemClassNames>;
+type RuleFooterNames = "footer";
+type RuleHeaderNames = "header";
+type RuleContentNames = "content";
+type RuleItemNames = "item";
+type RuleTitleNames = "title";
 
-const getFooterStyles: FooterStyles = {
-  footer: () => ({
+export const useFooterStyles = createUseStyles<RuleFooterNames, Itheme>({
+  footer: (theme) => ({
     ...layoutFlexRow,
     justifyContent: "space-evenly",
     padding: "1rem 2rem",
     flexWrap: "wrap",
-    color: colors.highlightColor,
+    color: theme.highlightColor,
     marginTop: "auto",
   }),
-};
-const getHeaderStyles: HeaderStyles = {
-  header: () => ({
+});
+export const useHeaderStyles = createUseStyles<RuleHeaderNames, Itheme>({
+  header: (theme) => ({
     padding: "1rem 2rem",
     ...layoutFlexRow,
     justifyContent: "center",
     gridColumnGap: "2rem",
-    borderBottom: `4px dashed ${colors.highlightColor8}`,
-    color: colors.highlightColor,
+    borderBottom: `4px dashed ${theme.highlightColor8}`,
+    color: theme.highlightColor,
   }),
-};
-const getContentStyles: ContentStyles = {
-  content: () => ({
+});
+export const useContentStyles = createUseStyles<RuleContentNames, Itheme>({
+  content: (theme) => ({
     ...layoutFlexColumn,
     padding: "1rem 2rem",
     maxWidth: "1200px",
@@ -46,15 +42,15 @@ const getContentStyles: ContentStyles = {
     width: "auto",
     margin: "auto",
   }),
-};
-const getTitleStyles: TitleStyles = {
-  title: () => ({
+});
+export const useTitleStyles = createUseStyles<RuleTitleNames, Itheme>({
+  title: (theme) => ({
     fontSize: "2rem",
-    color: colors.highlightColor,
+    color: theme.highlightColor,
   }),
-};
-const getItemStyles: ItemStyles = {
-  item: () => ({
+});
+export const useItemStyles = createUseStyles<RuleItemNames, Itheme>({
+  item: (theme) => ({
     ...layoutFlexRow,
     transition: "all 0.25s ease",
     padding: "1rem 2rem",
@@ -63,9 +59,4 @@ const getItemStyles: ItemStyles = {
     lineHeight: "2rem",
     cursor: "pointer",
   }),
-};
-export const useFooterStyles = createUseStyles(getFooterStyles);
-export const useHeaderStyles = createUseStyles(getHeaderStyles);
-export const useContentStyles = createUseStyles(getContentStyles);
-export const useTitleStyles = createUseStyles(getTitleStyles);
-export const useItemStyles = createUseStyles(getItemStyles);
+});

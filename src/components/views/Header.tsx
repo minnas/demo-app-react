@@ -2,10 +2,14 @@ import { ReactElement } from "react";
 import { useHeaderStyles, useTitleStyles } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRainbow } from "@fortawesome/free-solid-svg-icons";
+import { useTheme } from "react-jss";
+import { Itheme } from "@Components/styles/theme";
 
 const Header = (): ReactElement => {
-  const styles = useHeaderStyles();
-  const titleStyles = useTitleStyles();
+  const theme = useTheme<Itheme>();
+  const styles = useHeaderStyles(theme);
+  const titleStyles = useTitleStyles(theme);
+
   return (
     <div className={styles.header}>
       <FontAwesomeIcon icon={faRainbow} className={titleStyles.title} />
