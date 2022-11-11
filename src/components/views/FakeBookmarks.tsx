@@ -41,7 +41,12 @@ const FakeTodos = (): ReactElement => {
       }}
     >
       <span>{item.title}</span>
-      <Button icon={faTimes} onClick={() => remove(item)} />
+      <Button
+        icon={faTimes}
+        onClick={() => remove(item)}
+        border="none"
+        padding="0"
+      />
     </div>
   );
 

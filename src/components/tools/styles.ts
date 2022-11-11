@@ -1,15 +1,20 @@
 import { Itheme, layoutFlexRow } from "@Components/styles/theme";
 import { createUseStyles } from "react-jss";
+import { ButtonProps } from "./Button";
 
 type RuleButtonNames = "button";
 type RuleSpinnerNames = "spinner";
 type RuleToastNames = "toast";
 
-export const useButtonStyles = createUseStyles<RuleButtonNames, Itheme>({
-  button: (theme) => ({
+export const useButtonStyles = createUseStyles<
+  RuleButtonNames,
+  ButtonProps,
+  Itheme
+>({
+  button: ({ theme, ...props }) => ({
     ...layoutFlexRow,
-    padding: "1rem 1.2rem",
-    border: `1px solid ${theme.highlightColor}`,
+    padding: props.padding || "1rem 1.2rem",
+    border: props.border || `1px solid ${theme.highlightColor}`,
     borderRadius: "15px",
     cursor: "pointer",
     transition: "all 0.25s ease",

@@ -5,26 +5,27 @@ import { useButtonStyles } from "./styles";
 import { useTheme } from "react-jss";
 import { Itheme } from "@Components/styles/theme";
 
-export type ButtonProps = {
+export interface ButtonProps {
   icon?: IconProp;
   disabled?: boolean;
   label?: string;
+  padding?: string;
+  border?: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
-};
+}
 
-const Button = ({
-  icon,
-  label,
-  disabled,
-  onClick,
-}: ButtonProps): ReactElement => {
+const Button = ({ ...props }: ButtonProps): ReactElement => {
   const theme = useTheme<Itheme>();
-  const styles = useButtonStyles(theme);
+  const styles = useButtonStyles({ ...props, theme });
 
   return (
-    <button className={styles.button} disabled={disabled} onClick={onClick}>
-      {icon ? <FontAwesomeIcon icon={icon} size="lg" /> : ""}
-      {label === undefined ? "" : <span>{label}</span>}
+    <button
+      className={styles.button}
+      disabled={props.disabled}
+      onClick={props.onClick}
+    >
+      {props.icon ? <FontAwesomeIcon icon={props.icon} size="lg" /> : ""}
+      {props.label === undefined ? "" : <span>{props.label}</span>}
     </button>
   );
 };
