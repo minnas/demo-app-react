@@ -13,7 +13,6 @@ import ViewLayout from "@Components/views/ViewLayout";
 function App() {
   const content = (
     <>
-      {" "}
       <Header />
       <div style={{ overflowY: "scroll" }}>
         <Routes>
