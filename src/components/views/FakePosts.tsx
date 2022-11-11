@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 import { useContentStyles } from "./styles";
-import { ApiType, search } from "@Api/api";
+import { search } from "@Api/api";
 import { Item } from "@Types/types";
 import Spinner from "@Components/tools/Spinner";
 import Card from "@Components/tools/Card";

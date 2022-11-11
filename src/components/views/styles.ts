@@ -1,7 +1,5 @@
 import { createUseStyles } from "react-jss";
-import { Styles } from "jss";
 import {
-  colors,
   Itheme,
   layoutFlexColumn,
   layoutFlexRow,
@@ -12,6 +10,7 @@ type RuleHeaderNames = "header";
 type RuleContentNames = "content";
 type RuleItemNames = "item";
 type RuleTitleNames = "title";
+type RuleLayoutNames = "layout";
 
 export const useFooterStyles = createUseStyles<RuleFooterNames, Itheme>({
   footer: (theme) => ({
@@ -54,9 +53,19 @@ export const useItemStyles = createUseStyles<RuleItemNames, Itheme>({
     ...layoutFlexRow,
     transition: "all 0.25s ease",
     padding: "1rem 2rem",
-    color: colors.highlightColor,
+    color: theme.highlightColor,
     fontSize: "2rem",
     lineHeight: "2rem",
     cursor: "pointer",
+  }),
+});
+export const useLayoutStyles = createUseStyles<RuleLayoutNames, Itheme>({
+  layout: (theme) => ({
+    color: theme.highlightColor,
+    backgroundColor: theme.bgColor,
+    display: "flex",
+    flexDirection: "column",
+    width: "100vw",
+    height: "100vh",
   }),
 });

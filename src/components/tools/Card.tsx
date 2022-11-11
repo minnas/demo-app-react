@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { useItemStyles, useTitleStyles } from "@Components/views/styles";
-import { colors, Itheme } from "@Components/styles/theme";
+import { Itheme } from "@Components/styles/theme";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { useTheme } from "react-jss";
 
@@ -33,9 +33,9 @@ const Card = ({ title, body, profiIcon }: CardProps): ReactElement => {
       show
         ? {}
         : {
-            backgroundColor: colors.highlightColor3,
-            border: `2px dashed ${colors.highlightColor}`,
-            boxShadow: `-1rem 0 0.4rem ${colors.highlightColor}`,
+            backgroundColor: theme.highlightColor3,
+            border: `2px dashed ${theme.highlightColor}`,
+            boxShadow: `-1rem 0 0.4rem ${theme.highlightColor}`,
             margin: "1rem 0",
           }
     );

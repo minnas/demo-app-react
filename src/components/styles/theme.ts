@@ -1,5 +1,3 @@
-import { Tracing } from "trace_events";
-
 export const colors = {
   highlightColor: "rgba(148, 104, 254, 1)",
   highlightColor8: "rgba(148, 104, 254, .8)",
@@ -13,6 +11,20 @@ export const colors = {
   shadowColor8: "rgba(0, 0, 0, .8)",
   bgColor: "#242424",
 };
+export const colors2 = {
+  highlightColor: "rgba(0, 102, 204, 1)",
+  highlightColor8: "rgba(0, 102, 204, .8)",
+  highlightColor6: "rgba(0, 102, 204, .6)",
+  highlightColor5: "rgba(0, 102, 204, .5)",
+  highlightColor3: "rgba(0, 102, 204, .3)",
+  highlightColor2: "rgba(0, 102, 204, .2)",
+  textColor: "rgba(0, 102, 204, 1)",
+  btnColor: "rgba(0,0,0, .8)",
+  shadowColor6: "rgba(0, 0, 0, .6)",
+  shadowColor8: "rgba(0, 0, 0, .8)",
+  bgColor: "#ffffff",
+};
+
 export const layoutFlexRow = {
   display: "flex",
   flexDirection: "row",
@@ -39,6 +51,9 @@ export interface Itheme {
   shadowColor8: string;
   bgColor: string;
 }
-export const theme: Itheme = {
+export const themeDark: Itheme = {
   ...colors,
+};
+export const themeLight: Itheme = {
+  ...colors2,
 };
