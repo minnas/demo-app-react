@@ -36,7 +36,6 @@ export const layoutFlexColumn = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  gridRowCap: "0.5rem",
 };
 export interface Itheme {
   highlightColor: string;

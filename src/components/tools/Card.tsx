@@ -6,7 +6,6 @@ import {
   faEnvelopeOpenText,
   faUserNinja,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
 import { useItemStyles, useTitleStyles } from "@Components/views/styles";
 import { Itheme } from "@Components/styles/theme";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
@@ -24,22 +23,15 @@ const Card = ({ title, body, profiIcon }: CardProps): ReactElement => {
   const stylesTitle = useTitleStyles(theme);
 
   const [show, setShow] = useState(true);
-  const [icon, setIcon] = useState(faEnvelope);
-  const [styles, setStyles] = useState({});
-
-  useEffect(() => {
-    setIcon(show ? faEnvelope : faEnvelopeOpenText);
-    setStyles(
-      show
-        ? {}
-        : {
-            backgroundColor: theme?.highlightColor3,
-            border: `2px dashed ${theme?.highlightColor}`,
-            boxShadow: `-1rem 0 0.4rem ${theme?.highlightColor}`,
-            margin: "1rem 0",
-          }
-    );
-  }, [show]);
+  const icon = show ? faEnvelope : faEnvelopeOpenText;
+  const styles = show
+    ? {}
+    : {
+        backgroundColor: theme?.highlightColor3,
+        border: `2px dashed ${theme?.highlightColor}`,
+        boxShadow: `-1rem 0 0.4rem ${theme?.highlightColor}`,
+        margin: "1rem 0",
+      };
 
   return (
     <div

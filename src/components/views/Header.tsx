@@ -21,7 +21,10 @@ const Header = (): ReactElement => {
 
   return (
     <div className={styles.header}>
-      <FontAwesomeIcon icon={faRainbow} className={titleStyles.title} />
+      <FontAwesomeIcon
+        icon={faRainbow}
+        className={titleStyles.title + " " + titleStyles.icon}
+      />
       <h1 className={titleStyles.title}>Small Demo with React + Vite + TS</h1>
       <Button
         icon={selectedTheme.theme === "light" ? faMoon : faSun}

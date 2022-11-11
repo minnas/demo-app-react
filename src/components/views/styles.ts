@@ -9,9 +9,10 @@ type RuleFooterNames = "footer";
 type RuleHeaderNames = "header";
 type RuleContentNames = "content";
 type RuleItemNames = "item";
-type RuleTitleNames = "title";
+type RuleTitleNames = "title" | "icon";
 type RuleLayoutNames = "layout";
 type RuleListItemNames = "listItem";
+type RulePaintNames = "wrapper" | "tools";
 
 export const useFooterStyles = createUseStyles<RuleFooterNames, Itheme>({
   footer: (theme) => ({
@@ -48,6 +49,11 @@ export const useTitleStyles = createUseStyles<RuleTitleNames, Itheme>({
     fontSize: "2rem",
     color: theme?.highlightColor,
   }),
+  icon: (theme) => ({
+    boxShadow: `${theme.highlightColor5} 0 10px 1rem`,
+    borderRadius: "15px",
+    padding: "0 5px",
+  }),
 });
 export const useItemStyles = createUseStyles<RuleItemNames, Itheme>({
   item: (theme) => ({
@@ -72,6 +78,14 @@ export const useLayoutStyles = createUseStyles<RuleLayoutNames, Itheme>({
 });
 export const useListItemStyles = createUseStyles<RuleListItemNames, Itheme>({
   listItem: (theme) => ({
+    ...layoutFlexRow,
+  }),
+});
+export const usePaintStyles = createUseStyles<RulePaintNames, Itheme>({
+  wrapper: (theme) => ({
+    ...layoutFlexColumn,
+  }),
+  tools: (theme) => ({
     ...layoutFlexRow,
   }),
 });
