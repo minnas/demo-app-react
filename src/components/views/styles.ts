@@ -12,7 +12,7 @@ type RuleItemNames = "item";
 type RuleTitleNames = "title" | "icon";
 type RuleLayoutNames = "layout";
 type RuleListItemNames = "listItem";
-type RulePaintNames = "wrapper" | "tools";
+type RulePaintNames = "wrapper" | "tools" | "color" | "canvas";
 
 export const useFooterStyles = createUseStyles<RuleFooterNames, Itheme>({
   footer: (theme) => ({
@@ -84,8 +84,28 @@ export const useListItemStyles = createUseStyles<RuleListItemNames, Itheme>({
 export const usePaintStyles = createUseStyles<RulePaintNames, Itheme>({
   wrapper: (theme) => ({
     ...layoutFlexColumn,
+    alignItems: "center",
+    gridRowGap: "2rem",
+    paddingTop: "2rem",
   }),
   tools: (theme) => ({
     ...layoutFlexRow,
+    maxWidth: "600px",
+  }),
+  color: (theme) => ({
+    borderRadius: "50%",
+    width: "3rem",
+    height: "3rem",
+    border: "2px solid #000",
+    "&:hover": {
+      opacity: "0.4",
+      cursor: "pointer",
+    },
+  }),
+  canvas: (theme) => ({
+    width: "500px",
+    height: "300px",
+    margin: "auto",
+    border: `2px dashed ${theme.highlightColor}`,
   }),
 });

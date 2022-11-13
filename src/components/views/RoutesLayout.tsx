@@ -7,6 +7,7 @@ import FakePosts from "./FakePosts";
 import FakeTodos from "./FakeTodos";
 import FakeBookmarks from "./FakeBookmarks";
 import Footer from "./Footer";
+import FakePaint from "./FakePaint";
 
 const RoutesLayout = () => {
   const theme = useTheme<Itheme>();
@@ -20,6 +21,7 @@ const RoutesLayout = () => {
           <Route path="/" element={<FakePosts />} />
           <Route path="/todos" element={<FakeTodos />} />
           <Route path="/bookmarks" element={<FakeBookmarks />} />
+          <Route path="/paint" element={<FakePaint />} />
         </Routes>
       </div>
       <Footer />

@@ -41,6 +41,6 @@ export const pages: Page[] = [
   { path: "/", icon: faRainbow },
   { path: "/todos", icon: faBug },
   { path: "/bookmarks", icon: faBookmark },
+  { path: "/paint", icon: faPaintBrush },
   { path: "/", icon: faBookJournalWhills },
-  { path: "/", icon: faPaintBrush },
 ];

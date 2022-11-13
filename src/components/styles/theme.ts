@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
   highlightColor: "rgba(148, 104, 254, 1)",
   highlightColor8: "rgba(148, 104, 254, .8)",
   highlightColor6: "rgba(148, 104, 254, .6)",
@@ -11,7 +11,7 @@ export const colors = {
   shadowColor8: "rgba(0, 0, 0, .8)",
   bgColor: "#242424",
 };
-export const colors2 = {
+const colors2 = {
   highlightColor: "rgba(0, 102, 204, 1)",
   highlightColor8: "rgba(0, 102, 204, .8)",
   highlightColor6: "rgba(0, 102, 204, .6)",
@@ -56,3 +56,10 @@ export const themeDark: Itheme = {
 export const themeLight: Itheme = {
   ...colors2,
 };
+export const paintColors = [
+  "#000000",
+  "#FF0000",
+  "#0000FF",
+  "#008000",
+  "#7F00FF",
+];
