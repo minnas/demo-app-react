@@ -38,8 +38,9 @@ const DropDownProps = ({ selected, items }: DropDownProps): ReactElement => {
     setShow(false);
   };
 
-  const itemButton = items?.map((item: ListItem) => (
+  const itemButton = items?.map((item: ListItem, index:number) => (
     <Button
+      key={index}
       icon={item.icon}
       label={item.label}
       border="none"
