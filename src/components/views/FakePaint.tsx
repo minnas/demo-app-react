@@ -114,8 +114,8 @@ const FakePaint = (): ReactElement => {
           type="range"
           min="500"
           max="1000"
-          onChange={(value: any) =>
-            setCanvasW((value?.target?.value as number) || 500)
+          onChange={(event: any) =>
+            setCanvasW((event?.target?.value as number) || 500)
           }
         />
       </div>
