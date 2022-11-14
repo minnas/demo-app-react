@@ -12,7 +12,7 @@ type RuleItemNames = "item";
 type RuleTitleNames = "title" | "icon";
 type RuleLayoutNames = "layout";
 type RuleListItemNames = "listItem";
-type RulePaintNames = "wrapper" | "tools" | "color" | "canvas" | "select";
+type RulePaintNames = "wrapper" | "tools" | "color" | "canvas" | "range";
 
 export const useFooterStyles = createUseStyles<RuleFooterNames, Itheme>({
   footer: (theme) => ({
@@ -108,23 +108,35 @@ export const usePaintStyles = createUseStyles<RulePaintNames, Itheme>({
     margin: "auto",
     border: `2px dashed ${theme.highlightColor}`,
   }),
-  select: (theme) => ({
-    backgroundColor: theme.bgColor,
+  range: (theme) => ({
     color: theme.highlightColor,
-    padding: "0.75rem",
-    width: "2rem",
+    width: "100%",
     fontSize: "2rem",
-    border: `1px solid ${theme.highlightColor}`,
-    borderRadius: "15px",
-    mozAppearance: "textfield",
-    appearance: "textfield",
-    textAlign: "center",
-    margin: 0,
-    "&::-webkit-inner-spin-button": {
-      "-webkit-appearance": "none",
+    backgroundColor: theme.bgColor,
+    "-webkit-appearance": "none",
+    "&:focus": {
+      outline: "none",
     },
-    "&::-webkit-outer-spin-button": {
+    "&::-webkit-slider-runnable-track": {
+      background: theme.highlightColor5,
+    },
+    "&::-moz-range-track": {
+      background: theme.highlightColor5,
+    },
+    "&::-webkit-slider-thumb": {
       "-webkit-appearance": "none",
+      width: "1rem",
+      height: "2rem",
+      background: theme.highlightColor,
+      color: theme.highlightColor,
+      borderColor: theme.highlightColor2,
+    },
+    "&::-moz-range-thumb": {
+      width: "1rem",
+      height: "2rem",
+      background: theme.highlightColor,
+      color: theme.highlightColor,
+      borderColor: theme.highlightColor2,
     },
   }),
 });

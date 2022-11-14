@@ -16,6 +16,7 @@ const FakePaint = (): ReactElement => {
   const colors = paintColors;
   const [color, setColor] = useState(colors.at(0));
   const [draw, setDraw] = useState(false);
+  const [canvasW, setCanvasW] = useState(500);
   const [toastVisible, setToastVisible] = useState(false);
   const [lineWidth, setLineWidth] = useState(2);
   const canvasRef = createRef<HTMLCanvasElement>();
@@ -100,13 +101,24 @@ const FakePaint = (): ReactElement => {
       </div>
       <canvas
         className={styles.canvas}
-        width="500"
-        height="300"
+        width={canvasW}
+        height={(canvasW / 500) * 300}
         onMouseDown={() => setDraw(true)}
         onMouseUp={() => setDraw(false)}
         onMouseMove={(event) => drawLine(event)}
         ref={canvasRef}
       />
+      <div>
+        <input
+          className={styles.range}
+          type="range"
+          min="500"
+          max="1000"
+          onChange={(value: any) =>
+            setCanvasW((value?.target?.value as number) || 500)
+          }
+        />
+      </div>
     </div>
   );
 };

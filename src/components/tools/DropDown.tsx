@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { createRef, useState } from "react";
+import { useState } from "react";
 import { Itheme } from "@Components/styles/theme";
 import { useTheme } from "react-jss";
 import { useDropDownStyles } from "./styles";
@@ -20,7 +20,6 @@ export type DropDownProps = {
 const DropDownProps = ({ selected, items }: DropDownProps): ReactElement => {
   const theme = useTheme<Itheme>();
   const stylesAccordion = useDropDownStyles(theme);
-  const toggleRef = createRef<HTMLDivElement>();
   const [current, setCurrent] = useState(selected);
   const [show, setShow] = useState(false);
 
@@ -38,7 +37,7 @@ const DropDownProps = ({ selected, items }: DropDownProps): ReactElement => {
     setShow(false);
   };
 
-  const itemButton = items?.map((item: ListItem, index:number) => (
+  const itemButton = items?.map((item: ListItem, index: number) => (
     <Button
       key={index}
       icon={item.icon}
@@ -50,7 +49,7 @@ const DropDownProps = ({ selected, items }: DropDownProps): ReactElement => {
   ));
 
   return (
-    <div className={stylesAccordion.wrapper} ref={toggleRef}>
+    <div className={stylesAccordion.wrapper}>
       <div style={styles}>
         <Button
           onClick={() => setShow(!show)}
