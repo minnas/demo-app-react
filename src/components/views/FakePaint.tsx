@@ -8,6 +8,7 @@ import {
   faFloppyDisk,
 } from "@fortawesome/free-solid-svg-icons";
 import Toast from "@Components/tools/Toast";
+import Accordion, { ListItem } from "@Components/tools/DropDown";
 
 const FakePaint = (): ReactElement => {
   const theme = useTheme<Itheme>();
@@ -50,21 +51,34 @@ const FakePaint = (): ReactElement => {
     const ctx = canvasRef.current?.getContext("2d");
     if (canvas && ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
-  const selectLineWidth = (e: any) => {
-    if (!e.target) {
-      return;
-    }
-    setLineWidth(e.target.value);
-  };
+
   const save = () => {
     if (!canvasRef?.current) {
       return;
     }
+    setToastVisible(true);
     const link = document.createElement("a");
     link.setAttribute("download", "drawing.png");
     link.setAttribute("href", canvasRef?.current.toDataURL("image/png"));
     link.click();
+    link.remove();
+    setTimeout(() => {
+      setToastVisible(false);
+    }, 500);
   };
+  const lineWidths = [...Array(10).keys()]
+    .filter((w: number) => w > 1)
+    .map(
+      (w: number) =>
+        ({
+          value: w,
+          label: w.toString(),
+          callback: () => {
+            setLineWidth(w);
+          },
+        } as ListItem)
+    );
+
   return (
     <div className={styles.wrapper}>
       {toastVisible ? <Toast message="Saved" /> : ""}
@@ -80,14 +94,7 @@ const FakePaint = (): ReactElement => {
             onClick={() => setColor(c)}
           ></span>
         ))}
-        <input
-          className={styles.select}
-          type="number"
-          min="2"
-          step="1"
-          max="10"
-          onInput={selectLineWidth}
-        />
+        <Accordion items={lineWidths} selected={lineWidth.toString()} />
         <Button icon={faArrowsRotate} onClick={clear} />
         <Button icon={faFloppyDisk} onClick={save} />
       </div>

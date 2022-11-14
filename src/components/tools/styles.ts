@@ -1,10 +1,15 @@
-import { Itheme, layoutFlexRow } from "@Components/styles/theme";
+import {
+  Itheme,
+  layoutFlexColumn,
+  layoutFlexRow,
+} from "@Components/styles/theme";
 import { createUseStyles } from "react-jss";
 import { ButtonProps } from "./Button";
 
 type RuleButtonNames = "button";
 type RuleSpinnerNames = "spinner";
 type RuleToastNames = "toast";
+type RuleDropDownNames = "wrapper" | "toggle" | "content";
 
 export const useButtonStyles = createUseStyles<
   RuleButtonNames,
@@ -57,5 +62,25 @@ export const useToastStyles = createUseStyles<RuleToastNames, Itheme>({
     padding: "1.5rem 2rem",
     fontWeight: "600",
     borderRadius: "10px",
+  }),
+});
+export const useDropDownStyles = createUseStyles<RuleDropDownNames, Itheme>({
+  wrapper: (theme) => ({
+    ...layoutFlexColumn,
+    color: theme?.bgColor,
+    backgroundColor: theme.bgColor,
+    fontSize: "2.5rem",
+    transition: "all 0.25s ease",
+    position: "relative",
+  }),
+  toggle: (theme) => ({}),
+  content: (theme) => ({
+    ...layoutFlexColumn,
+    position: "absolute",
+    top: 0,
+    zIndex: 999,
+    alignItems: "center",
+    width: "100%",
+    border: `2px dashed ${theme?.highlightColor}`,
   }),
 });
