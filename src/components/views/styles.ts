@@ -12,7 +12,7 @@ type RuleItemNames = "item";
 type RuleTitleNames = "title" | "icon";
 type RuleLayoutNames = "layout";
 type RuleListItemNames = "listItem";
-type RulePaintNames = "wrapper" | "tools" | "color" | "canvas";
+type RulePaintNames = "wrapper" | "tools" | "color" | "canvas" | "select";
 
 export const useFooterStyles = createUseStyles<RuleFooterNames, Itheme>({
   footer: (theme) => ({
@@ -90,7 +90,9 @@ export const usePaintStyles = createUseStyles<RulePaintNames, Itheme>({
   }),
   tools: (theme) => ({
     ...layoutFlexRow,
-    maxWidth: "600px",
+    maxWidth: "800px",
+    flexWrap: "wrap",
+    gridRowGap: "1rem",
   }),
   color: (theme) => ({
     borderRadius: "50%",
@@ -103,9 +105,26 @@ export const usePaintStyles = createUseStyles<RulePaintNames, Itheme>({
     },
   }),
   canvas: (theme) => ({
-    width: "500px",
-    height: "300px",
     margin: "auto",
     border: `2px dashed ${theme.highlightColor}`,
+  }),
+  select: (theme) => ({
+    backgroundColor: theme.bgColor,
+    color: theme.highlightColor,
+    padding: "0.75rem",
+    width: "2rem",
+    fontSize: "2rem",
+    border: `1px solid ${theme.highlightColor}`,
+    borderRadius: "15px",
+    mozAppearance: "textfield",
+    appearance: "textfield",
+    textAlign: "center",
+    margin: 0,
+    "&::-webkit-inner-spin-button": {
+      "-webkit-appearance": "none",
+    },
+    "&::-webkit-outer-spin-button": {
+      "-webkit-appearance": "none",
+    },
   }),
 });
