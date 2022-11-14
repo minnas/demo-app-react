@@ -1,7 +1,11 @@
 import { createRef, ReactElement, useState } from "react";
 import { usePaintStyles } from "./styles";
 import { useTheme } from "react-jss";
-import { Itheme, paintColors } from "@Components/styles/theme";
+import {
+  Itheme,
+  layoutFlexColumn,
+  paintColors,
+} from "@Components/styles/theme";
 import Button from "@Components/tools/Button";
 import {
   faArrowsRotate,
@@ -108,7 +112,7 @@ const FakePaint = (): ReactElement => {
         onMouseMove={(event) => drawLine(event)}
         ref={canvasRef}
       />
-      <div>
+      <div className={styles.sizeTools}>
         <input
           className={styles.range}
           type="range"
@@ -118,6 +122,9 @@ const FakePaint = (): ReactElement => {
             setCanvasW((event?.target?.value as number) || 500)
           }
         />
+        <span className={styles.size}>
+          Size: {canvasW} X {(canvasW / 500) * 300}
+        </span>
       </div>
     </div>
   );
