@@ -110,6 +110,8 @@ const FakePaint = (): ReactElement => {
           setDisabled(true);
         }}
         onMouseUp={() => setDraw(false)}
+        onBlur={() => setDraw(false)}
+        onMouseLeave={() => setDraw(false)}
         onMouseMove={(event) => drawLine(event)}
         ref={canvasRef}
       />
