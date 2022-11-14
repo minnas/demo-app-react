@@ -1,11 +1,7 @@
 import { createRef, ReactElement, useState } from "react";
 import { usePaintStyles } from "./styles";
 import { useTheme } from "react-jss";
-import {
-  Itheme,
-  layoutFlexColumn,
-  paintColors,
-} from "@Components/styles/theme";
+import { Itheme, paintColors } from "@Components/styles/theme";
 import Button from "@Components/tools/Button";
 import {
   faArrowsRotate,
@@ -23,6 +19,7 @@ const FakePaint = (): ReactElement => {
   const [canvasW, setCanvasW] = useState(500);
   const [toastVisible, setToastVisible] = useState(false);
   const [lineWidth, setLineWidth] = useState(2);
+  const [disabled, setDisabled] = useState(false);
   const canvasRef = createRef<HTMLCanvasElement>();
   let prevX: any = undefined;
   let prevY: any = undefined;
@@ -55,6 +52,7 @@ const FakePaint = (): ReactElement => {
     const canvas = canvasRef?.current;
     const ctx = canvasRef.current?.getContext("2d");
     if (canvas && ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    setDisabled(false);
   };
 
   const save = () => {
@@ -107,7 +105,10 @@ const FakePaint = (): ReactElement => {
         className={styles.canvas}
         width={canvasW}
         height={(canvasW / 500) * 300}
-        onMouseDown={() => setDraw(true)}
+        onMouseDown={() => {
+          setDraw(true);
+          setDisabled(true);
+        }}
         onMouseUp={() => setDraw(false)}
         onMouseMove={(event) => drawLine(event)}
         ref={canvasRef}
@@ -118,6 +119,7 @@ const FakePaint = (): ReactElement => {
           type="range"
           min="500"
           max="1000"
+          disabled={disabled}
           onChange={(event: any) =>
             setCanvasW((event?.target?.value as number) || 500)
           }

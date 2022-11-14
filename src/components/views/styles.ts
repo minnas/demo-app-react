@@ -149,6 +149,13 @@ export const usePaintStyles = createUseStyles<RulePaintNames, Itheme>({
       color: theme.highlightColor,
       borderColor: theme.highlightColor2,
     },
+    "&:not(input[disabled]):hover": {
+      cursor: "pointer",
+      opacity: "0.8",
+    },
+    "&:is(input[disabled])": {
+      opacity: "0.5",
+    },
   }),
   size: (theme) => ({
     fontSize: "2rem",
