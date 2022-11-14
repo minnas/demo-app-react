@@ -3,7 +3,11 @@ import { usePaintStyles } from "./styles";
 import { useTheme } from "react-jss";
 import { Itheme, paintColors } from "@Components/styles/theme";
 import Button from "@Components/tools/Button";
-import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowsRotate,
+  faFloppyDisk,
+} from "@fortawesome/free-solid-svg-icons";
+import Toast from "@Components/tools/Toast";
 
 const FakePaint = (): ReactElement => {
   const theme = useTheme<Itheme>();
@@ -11,6 +15,7 @@ const FakePaint = (): ReactElement => {
   const colors = paintColors;
   const [color, setColor] = useState(colors.at(0));
   const [draw, setDraw] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
   const [lineWidth, setLineWidth] = useState(2);
   const canvasRef = createRef<HTMLCanvasElement>();
   let prevX: any = undefined;
@@ -51,9 +56,18 @@ const FakePaint = (): ReactElement => {
     }
     setLineWidth(e.target.value);
   };
-
+  const save = () => {
+    if (!canvasRef?.current) {
+      return;
+    }
+    const link = document.createElement("a");
+    link.setAttribute("download", "drawing.png");
+    link.setAttribute("href", canvasRef?.current.toDataURL("image/png"));
+    link.click();
+  };
   return (
     <div className={styles.wrapper}>
+      {toastVisible ? <Toast message="Saved" /> : ""}
       <div className={styles.tools}>
         {colors.map((c: string, key: number) => (
           <span
@@ -66,16 +80,16 @@ const FakePaint = (): ReactElement => {
             onClick={() => setColor(c)}
           ></span>
         ))}
-        <Button icon={faArrowsRotate} onClick={clear} />
         <input
           className={styles.select}
           type="number"
           min="2"
           step="1"
           max="10"
-          value="2"
           onInput={selectLineWidth}
         />
+        <Button icon={faArrowsRotate} onClick={clear} />
+        <Button icon={faFloppyDisk} onClick={save} />
       </div>
       <canvas
         className={styles.canvas}
