@@ -1,3 +1,8 @@
 {
-  "app-title": "Small Demo with React + Vite + TS"
+  "app-title": "Small Demo with React + Vite + TS",
+  "toast-msg-remove": "Removed!",
+  "toast-msg-save": "Saved!",
+  "toast-msg-add": "Added!",
+  "new-note-placeholder": "a new note or todo. Save by Enter",
+  "new-note-add-btn": "Add new Note/Todo"
 }

@@ -16,15 +16,17 @@ import { addBookmark, removeBookmark } from "@Store/dataSlices";
 import Toast from "@Components/tools/Toast";
 import { useTheme } from "react-jss";
 import { Itheme } from "@Components/styles/theme";
+import { useTranslation } from "react-i18next";
 
 const FakeTodos = (): ReactElement => {
+  const { t } = useTranslation();
   const theme = useTheme<Itheme>();
   const stylesContent = useContentStyles(theme);
   const stylesItem = useListItemStyles(theme);
   const dispatch = useDispatch();
   const bookmarks = useSelector((state: RootState) => state.bookmarks);
   const [toastVisible, setToastVisible] = useState(false);
-  const [toastMsg, setToastMsg] = useState("Saved !");
+  const [toastMsg, setToastMsg] = useState(t("toast-msg-save"));
   const [todos, setTodos] = useState([] as Item[]);
   const [loading, setLoading] = useState(false);
   const profiIcon = faUserSecret;
@@ -39,7 +41,7 @@ const FakeTodos = (): ReactElement => {
         externalId: item.id,
       } as Bookmark)
     );
-    setToastMsg("Saved !");
+    setToastMsg(t("toast-msg-save"));
     setToastVisible(true);
     setTimeout(() => {
       setToastVisible(false);
@@ -52,7 +54,7 @@ const FakeTodos = (): ReactElement => {
       })
     );
     setToastVisible(true);
-    setToastMsg("Removed !");
+    setToastMsg(t("toast-msg-remove"));
     setTimeout(() => {
       setToastVisible(false);
     }, 800);
@@ -89,7 +91,7 @@ const FakeTodos = (): ReactElement => {
 
   return (
     <div className={stylesContent.content}>
-      {toastVisible ? <Toast message={toastMsg} /> : ""}
+      {toastVisible ? <Toast message={toastMsg || ""} /> : ""}
       {loading ? <Spinner /> : ""}
       {todos.map((item: Item, index: number) => (
         <Card key={index} {...{ ...item, body: body(item), profiIcon }} />

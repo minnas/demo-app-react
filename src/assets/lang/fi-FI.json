@@ -1,3 +1,8 @@
 {
-  "app-title": "Demo Appis tehty React + Vite + TS"
+  "app-title": "Demo Appis tehty React + Vite + TS",
+  "toast-msg-remove": "Poissa!",
+  "toast-msg-save": "Tallessa!",
+  "toast-msg-add": "Lisätty!",
+  "new-note-placeholder": "uusi tehtävä. Tallenna Enterillä",
+  "new-note-add-btn": "Lisää uusi"
 }

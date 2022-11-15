@@ -10,8 +10,10 @@ import { removeBookmark } from "@Store/dataSlices";
 import Toast from "@Components/tools/Toast";
 import { useTheme } from "react-jss";
 import { Itheme } from "@Components/styles/theme";
+import { useTranslation } from "react-i18next";
 
 const FakeTodos = (): ReactElement => {
+  const { t } = useTranslation();
   const theme = useTheme<Itheme>();
   const stylesContent = useContentStyles(theme);
   const stylesItem = useListItemStyles(theme);
@@ -42,7 +44,7 @@ const FakeTodos = (): ReactElement => {
 
   return (
     <div className={stylesContent.content}>
-      {toastVisible ? <Toast message="Removed !" /> : ""}
+      {toastVisible ? <Toast message={t("toast-msg-remove")} /> : ""}
       {bookmarks.map((item: Item, index: number) => (
         <Card key={index} {...{ ...item, body: body(item), profiIcon }} />
       ))}

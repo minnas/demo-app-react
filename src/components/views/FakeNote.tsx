@@ -14,15 +14,17 @@ import { add as addTodo, remove as removeTodo } from "@Store/dataSlices";
 import Toast from "@Components/tools/Toast";
 import { useTheme } from "react-jss";
 import { Itheme } from "@Components/styles/theme";
+import { useTranslation } from "react-i18next";
 
 const FakeNote = (): ReactElement => {
+  const { t } = useTranslation();
   const theme = useTheme<Itheme>();
   const stylesContent = useContentStyles(theme);
   const stylesItem = useListItemStyles(theme);
   const dispatch = useDispatch();
   const notes = useSelector((state: RootState) => state.todos);
   const [toastVisible, setToastVisible] = useState(false);
-  const [toastMsg, setToastMsg] = useState("Saved !");
+  const [toastMsg, setToastMsg] = useState(t("toast-msg-save"));
   const [noteVisible, setNoteVisible] = useState(false);
   const profiIcon = faUserAstronaut;
 
@@ -32,7 +34,7 @@ const FakeNote = (): ReactElement => {
         ...item,
       } as Todo)
     );
-    setToastMsg("Saved !");
+    setToastMsg(t("toast-msg-save"));
     setToastVisible(true);
     setTimeout(() => {
       setToastVisible(false);
@@ -45,7 +47,7 @@ const FakeNote = (): ReactElement => {
       })
     );
     setToastVisible(true);
-    setToastMsg("Removed !");
+    setToastMsg(t("toast-msg-remove"));
     setTimeout(() => {
       setToastVisible(false);
     }, 800);
@@ -83,7 +85,7 @@ const FakeNote = (): ReactElement => {
 
   return (
     <div className={stylesContent.content}>
-      {toastVisible ? <Toast message={toastMsg} /> : ""}
+      {toastVisible ? <Toast message={toastMsg || ""} /> : ""}
       <div className={stylesContent.newItem}>
         {noteVisible ? (
           <>
@@ -91,7 +93,7 @@ const FakeNote = (): ReactElement => {
               className={stylesContent.textarea}
               onKeyDown={save}
               rows={5}
-              placeholder="a new note or todo. Save by Enter"
+              placeholder={t("new-note-placeholder")}
             ></textarea>
             <Button
               icon={faTimes}
@@ -104,7 +106,7 @@ const FakeNote = (): ReactElement => {
           <Button
             icon={faPlus}
             onClick={() => setNoteVisible(true)}
-            label="Add Note/Todo"
+            label={t("new-note-add-btn")}
             margin="auto"
             animation="fadeIn 1s ease-in"
           />
