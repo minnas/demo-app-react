@@ -5,7 +5,7 @@ import Card from "@Components/tools/Card";
 import {
   faPlus,
   faTimes,
-  faUserSecret,
+  faUserAstronaut,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "@Components/tools/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,7 +24,7 @@ const FakeNote = (): ReactElement => {
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMsg, setToastMsg] = useState("Saved !");
   const [noteVisible, setNoteVisible] = useState(false);
-  const profiIcon = faUserSecret;
+  const profiIcon = faUserAstronaut;
 
   const add = (item: RawItem) => {
     dispatch(
