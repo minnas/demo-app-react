@@ -13,6 +13,7 @@ export interface ButtonProps {
   border?: string;
   margin?: string;
   animation?: string;
+  alignSelf?: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 

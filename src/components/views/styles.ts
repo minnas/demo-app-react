@@ -66,7 +66,6 @@ export const useContentStyles = createUseStyles<RuleContentNames, Itheme>({
     height: "200px",
     maxWidth: "100%",
     fontSize: "1.5rem",
-    margin: "auto",
     background: "transparent",
     color: theme.textColor,
   }),

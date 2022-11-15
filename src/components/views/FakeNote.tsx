@@ -86,12 +86,20 @@ const FakeNote = (): ReactElement => {
       {toastVisible ? <Toast message={toastMsg} /> : ""}
       <div className={stylesContent.newItem}>
         {noteVisible ? (
-          <textarea
-            className={stylesContent.textarea}
-            onKeyDown={save}
-            rows={5}
-            placeholder="a new note or todo. Save by Enter"
-          ></textarea>
+          <>
+            <textarea
+              className={stylesContent.textarea}
+              onKeyDown={save}
+              rows={5}
+              placeholder="a new note or todo. Save by Enter"
+            ></textarea>
+            <Button
+              icon={faTimes}
+              alignSelf="baseline"
+              onClick={() => setNoteVisible(false)}
+              animation="fadeIn 1s ease-in"
+            />
+          </>
         ) : (
           <Button
             icon={faPlus}
