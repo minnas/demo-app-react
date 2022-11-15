@@ -98,6 +98,7 @@ const FakeNote = (): ReactElement => {
             onClick={() => setNoteVisible(true)}
             label="Add Note/Todo"
             margin="auto"
+            animation="fadeIn 1s ease-in"
           />
         )}
       </div>

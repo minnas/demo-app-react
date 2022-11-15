@@ -60,7 +60,8 @@ export const useContentStyles = createUseStyles<RuleContentNames, Itheme>({
   }),
   textarea: (theme) => ({
     border: `2px dashed ${theme?.highlightColor8}`,
-    animation: "fadeIn 0.8s ease",
+    animation: "fadeIn 1s ease-in",
+    opacity: 1,
     width: "500px",
     height: "200px",
     maxWidth: "100%",

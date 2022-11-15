@@ -27,6 +27,7 @@ export const useButtonStyles = createUseStyles<
     color: theme?.highlightColor,
     fontSize: "1.6rem",
     margin: props.margin || "unset",
+    animation: props.animation || "unset",
     "&:hover": {
       color: theme?.highlightColor6,
       cursor: "pointer",
