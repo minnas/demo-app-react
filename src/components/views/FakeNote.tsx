@@ -70,7 +70,7 @@ const FakeNote = (): ReactElement => {
     }
     const content = e.target.value as string;
     add({
-      title: content.length > 10 ? content.substring(0, 10) : content,
+      title: content.length > 10 ? content.substring(0, 10) + "..." : content,
       body: content,
     } as RawItem);
     setToastMsg("Added!");
