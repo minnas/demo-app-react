@@ -8,7 +8,7 @@ import {
   faFloppyDisk,
 } from "@fortawesome/free-solid-svg-icons";
 import Toast from "@Components/tools/Toast";
-import Accordion, { ListItem } from "@Components/tools/DropDown";
+import DropDown, { ListItem } from "@Components/tools/DropDown";
 
 const FakePaint = (): ReactElement => {
   const theme = useTheme<Itheme>();
@@ -97,7 +97,7 @@ const FakePaint = (): ReactElement => {
             onClick={() => setColor(c)}
           ></span>
         ))}
-        <Accordion items={lineWidths} selected={lineWidth.toString()} />
+        <DropDown items={lineWidths} selected={lineWidth.toString()} />
         <Button icon={faArrowsRotate} onClick={clear} />
         <Button icon={faFloppyDisk} onClick={save} />
       </div>

@@ -17,7 +17,7 @@ export type DropDownProps = {
   items?: ListItem[];
 };
 
-const DropDownProps = ({ selected, items }: DropDownProps): ReactElement => {
+const DropDown = ({ selected, items }: DropDownProps): ReactElement => {
   const theme = useTheme<Itheme>();
   const stylesAccordion = useDropDownStyles(theme);
   const [current, setCurrent] = useState(selected);
@@ -62,4 +62,4 @@ const DropDownProps = ({ selected, items }: DropDownProps): ReactElement => {
   );
 };
 
-export default DropDownProps;
+export default DropDown;
