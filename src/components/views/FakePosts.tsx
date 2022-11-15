@@ -19,10 +19,8 @@ const FakePosts = (): ReactElement => {
     setLoading(true);
     search()
       .then((items) => {
-        setTimeout(() => {
-          setPosts(items as Item[]);
-          setLoading(false);
-        }, 400);
+        setPosts(items as Item[]);
+        setLoading(false);
       })
       .catch((e: Error) => {
         console.log("Something went wrong here " + e);

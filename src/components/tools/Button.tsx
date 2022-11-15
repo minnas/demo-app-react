@@ -11,6 +11,7 @@ export interface ButtonProps {
   label?: string;
   padding?: string;
   border?: string;
+  margin?: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 

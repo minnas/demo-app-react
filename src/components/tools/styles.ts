@@ -26,6 +26,7 @@ export const useButtonStyles = createUseStyles<
     backgroundColor: "transparent",
     color: theme?.highlightColor,
     fontSize: "1.6rem",
+    margin: props.margin || "unset",
     "&:hover": {
       color: theme?.highlightColor6,
       cursor: "pointer",

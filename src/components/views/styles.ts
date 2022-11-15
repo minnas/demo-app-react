@@ -7,7 +7,7 @@ import {
 
 type RuleFooterNames = "footer";
 type RuleHeaderNames = "header";
-type RuleContentNames = "content";
+type RuleContentNames = "content" | "newItem" | "textarea";
 type RuleItemNames = "item";
 type RuleTitleNames = "title" | "icon";
 type RuleLayoutNames = "layout";
@@ -49,6 +49,25 @@ export const useContentStyles = createUseStyles<RuleContentNames, Itheme>({
     transition: "all 0.25s ease",
     width: "auto",
     margin: "auto",
+  }),
+  newItem: (theme) => ({
+    ...layoutFlexRow,
+    justifyContent: "center",
+    padding: "1rem 2rem",
+    maxWidth: "1200px",
+    transition: "all 0.25s ease",
+    borderBottom: `4px dashed ${theme?.highlightColor8}`,
+  }),
+  textarea: (theme) => ({
+    border: `2px dashed ${theme?.highlightColor8}`,
+    animation: "fadeIn 0.8s ease",
+    width: "500px",
+    height: "200px",
+    maxWidth: "100%",
+    fontSize: "1.5rem",
+    margin: "auto",
+    background: "transparent",
+    color: theme.textColor,
   }),
 });
 export const useTitleStyles = createUseStyles<RuleTitleNames, Itheme>({
