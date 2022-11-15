@@ -4,5 +4,7 @@
   "toast-msg-save": "Tallessa!",
   "toast-msg-add": "Lisätty!",
   "new-note-placeholder": "uusi tehtävä. Tallenna Enterillä",
-  "new-note-add-btn": "Lisää uusi"
+  "new-note-add-btn": "Lisää uusi",
+  "no-notes-placeholder": "Ei tehtäviä täällä",
+  "no-bookmarks-placeholder": "Ei kirjanmerkkejä täällä"
 }

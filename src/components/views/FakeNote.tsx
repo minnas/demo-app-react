@@ -15,6 +15,7 @@ import Toast from "@Components/tools/Toast";
 import { useTheme } from "react-jss";
 import { Itheme } from "@Components/styles/theme";
 import { useTranslation } from "react-i18next";
+import Placeholder from "@Components/tools/Placeholder";
 
 const FakeNote = (): ReactElement => {
   const { t } = useTranslation();
@@ -112,6 +113,11 @@ const FakeNote = (): ReactElement => {
           />
         )}
       </div>
+      {notes.length < 1 ? (
+        <Placeholder content={t("no-notes-placeholder")} />
+      ) : (
+        ""
+      )}
       {notes.map((item: Item, index: number) => (
         <Card key={index} {...{ ...item, body: body(item), profiIcon }} />
       ))}

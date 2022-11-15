@@ -4,5 +4,7 @@
   "toast-msg-save": "Saved!",
   "toast-msg-add": "Added!",
   "new-note-placeholder": "a new note or todo. Save by Enter",
-  "new-note-add-btn": "Add new Note/Todo"
+  "new-note-add-btn": "Add new Note/Todo",
+  "no-notes-placeholder": "No notes or todos here",
+  "no-bookmarks-placeholder": "No bookmarks here"
 }

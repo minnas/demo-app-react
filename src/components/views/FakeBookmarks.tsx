@@ -11,6 +11,7 @@ import Toast from "@Components/tools/Toast";
 import { useTheme } from "react-jss";
 import { Itheme } from "@Components/styles/theme";
 import { useTranslation } from "react-i18next";
+import Placeholder from "@Components/tools/Placeholder";
 
 const FakeTodos = (): ReactElement => {
   const { t } = useTranslation();
@@ -45,6 +46,11 @@ const FakeTodos = (): ReactElement => {
   return (
     <div className={stylesContent.content}>
       {toastVisible ? <Toast message={t("toast-msg-remove")} /> : ""}
+      {bookmarks.length < 1 ? (
+        <Placeholder content={t("no-bookmarks-placeholder")} />
+      ) : (
+        ""
+      )}
       {bookmarks.map((item: Item, index: number) => (
         <Card key={index} {...{ ...item, body: body(item), profiIcon }} />
       ))}

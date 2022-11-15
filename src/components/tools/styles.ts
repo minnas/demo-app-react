@@ -10,6 +10,7 @@ type RuleButtonNames = "button";
 type RuleSpinnerNames = "spinner";
 type RuleToastNames = "toast";
 type RuleDropDownNames = "wrapper" | "toggle" | "content";
+type RulePlaceholderNames = "wrapper" | "icon" | "content";
 
 export const useButtonStyles = createUseStyles<
   RuleButtonNames,
@@ -85,5 +86,26 @@ export const useDropDownStyles = createUseStyles<RuleDropDownNames, Itheme>({
     alignItems: "center",
     width: "100%",
     border: `2px dashed ${theme?.highlightColor}`,
+  }),
+});
+export const usePlaceholderStyles = createUseStyles<
+  RulePlaceholderNames,
+  Itheme
+>({
+  wrapper: (theme) => ({
+    ...layoutFlexRow,
+    justifyContent: "center",
+    gridColumnGap: "2rem",
+    color: theme.highlightColor,
+    animation: "fadeIn 1s ease-in",
+    padding: "2rem",
+  }),
+  icon: (theme) => ({
+    fontSize: "3rem",
+    color: theme.highlightColor,
+  }),
+  content: (theme) => ({
+    fontSize: "2rem",
+    color: theme.highlightColor,
   }),
 });
