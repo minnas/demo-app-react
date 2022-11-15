@@ -27,7 +27,7 @@ const Header = (): ReactElement => {
     (lang: string) =>
       ({
         value: lang,
-        label: lang.toLocaleUpperCase(),
+        label: lang.toUpperCase(),
         callback: () => {
           i18n.changeLanguage(lang);
         },
