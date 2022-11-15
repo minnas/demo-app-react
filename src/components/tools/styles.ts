@@ -10,7 +10,7 @@ type RuleButtonNames = "button";
 type RuleSpinnerNames = "spinner";
 type RuleToastNames = "toast";
 type RuleDropDownNames = "wrapper" | "toggle" | "content";
-type RulePlaceholderNames = "wrapper" | "icon" | "content";
+type RulePlaceholderNames = "wrapper" | "icon" | "icon2" | "content";
 
 export const useButtonStyles = createUseStyles<
   RuleButtonNames,
@@ -103,6 +103,10 @@ export const usePlaceholderStyles = createUseStyles<
   icon: (theme) => ({
     fontSize: "3rem",
     color: theme.highlightColor,
+  }),
+  icon2: (theme) => ({
+    transform: "rotateY(-180deg)",
+    animation: "turnAround 2s ease-in 0.2s",
   }),
   content: (theme) => ({
     fontSize: "2rem",

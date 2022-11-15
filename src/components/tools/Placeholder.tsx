@@ -18,8 +18,7 @@ const Placeholder = ({ content }: PlaceholderProps): ReactElement => {
       <FontAwesomeIcon className={styles.icon} icon={faDog} size="lg" />
       <span className={styles.content}>{content}</span>
       <FontAwesomeIcon
-        className={styles.icon}
-        style={{ transform: "rotateY(-180deg)" }}
+        className={styles.icon + " " + styles.icon2}
         icon={faDog}
         size="lg"
       />
