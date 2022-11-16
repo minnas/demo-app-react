@@ -11,7 +11,7 @@ type RuleContentNames = "content" | "newItem" | "textarea";
 type RuleItemNames = "item";
 type RuleTitleNames = "title" | "icon";
 type RuleLayoutNames = "layout";
-type RuleListItemNames = "listItem";
+type RuleListItemNames = "listItem" | "image";
 type RulePaintNames =
   | "wrapper"
   | "tools"
@@ -105,6 +105,11 @@ export const useLayoutStyles = createUseStyles<RuleLayoutNames, Itheme>({
 export const useListItemStyles = createUseStyles<RuleListItemNames, Itheme>({
   listItem: (theme) => ({
     ...layoutFlexRow,
+  }),
+  image: (theme) => ({
+    border: `5px dashed ${theme.highlightColor}`,
+    borderRadius: "25px",
+    width: "100px",
   }),
 });
 export const usePaintStyles = createUseStyles<RulePaintNames, Itheme>({

@@ -3,19 +3,24 @@ import {
   faBookJournalWhills,
   faBookmark,
   faBug,
+  faDolly,
+  faGifts,
   faPaintBrush,
   faRainbow,
+  faShop,
 } from "@fortawesome/free-solid-svg-icons";
 
 const randomApi = "https://jsonplaceholder.typicode.com";
+const fakeProductsApi = "https://fakestoreapi.com/products";
 
 export const search = async (type?: ApiType) => {
-  let prefix = "posts";
+  const prefix = type && type == ApiType.TODOS ? "todos" : "posts";
+  const apiUrl =
+    type && type == ApiType.PRODUCTS
+      ? fakeProductsApi
+      : `${randomApi}/${prefix}`;
 
-  if (type && type == ApiType.TODOS) {
-    prefix = "todos";
-  }
-  return await fetch(`${randomApi}/${prefix}`, {
+  return await fetch(apiUrl, {
     headers: { "Access-Control-Allow-Origin": "*" },
     method: "GET",
   })
@@ -23,13 +28,14 @@ export const search = async (type?: ApiType) => {
       return res.json();
     })
     .catch((e) => {
-      throw new Error(`Failed to fetch ${prefix} from api`);
+      throw new Error(`Failed to fetch ${type?.toString() || prefix} from api`);
     });
 };
 
 export enum ApiType {
   POSTS = "posts",
   TODOS = "todos",
+  PRODUCTS = "products",
 }
 
 export type Page = {
@@ -43,4 +49,6 @@ export const pages: Page[] = [
   { path: "/bookmarks", icon: faBookmark },
   { path: "/paint", icon: faPaintBrush },
   { path: "/notes", icon: faBookJournalWhills },
+  { path: "/shop", icon: faGifts },
+  { path: "/order", icon: faDolly },
 ];

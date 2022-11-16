@@ -6,5 +6,6 @@
   "new-note-placeholder": "a new note or todo. Save by Enter",
   "new-note-add-btn": "Add new Note/Todo",
   "no-notes-placeholder": "No notes or todos here",
-  "no-bookmarks-placeholder": "No bookmarks here"
+  "no-bookmarks-placeholder": "No bookmarks here",
+  "no-products-placeholder": "No products here"
 }

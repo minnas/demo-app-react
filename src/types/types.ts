@@ -24,3 +24,11 @@ export type Todo = SavedItem & {
 export type Theme = {
   theme: "light" | "dark";
 };
+
+export type Product = Item & {
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+  externalId?: string;
+};
