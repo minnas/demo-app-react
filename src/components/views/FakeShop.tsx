@@ -32,7 +32,7 @@ const FakeShop = (): ReactElement => {
   const profiIcon = faUserDoctor;
 
   const add = (item: Item) => {
-    if (products.find((b) => b.externalId === item.id)) {
+    if (myProducts.find((b) => b.externalId === item.id)) {
       return;
     }
     dispatch(
