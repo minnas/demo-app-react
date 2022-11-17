@@ -22,6 +22,10 @@ const FakeOrder = (): ReactElement => {
   const dispatch = useDispatch();
   const products = useSelector((state: RootState) => state.products);
   const profiIcon = faUserInjured;
+  const totalPrice = products
+    .filter((p: Product) => !Number.isNaN(p.price))
+    .map((p: Product) => Number(p.price))
+    .reduce((prev, cur) => prev + cur, 0);
 
   const remove = (item: Product) => {
     dispatch(removeProduct({ id: item.id }));
@@ -56,6 +60,10 @@ const FakeOrder = (): ReactElement => {
       {products.map((item: Product, index: number) => (
         <Card key={index} {...{ ...item, body: body(item), profiIcon }} />
       ))}
+      <div className={stylesContent.bottomline}>
+        <span>{t("order-price-label")}</span>
+        {totalPrice} €
+      </div>
     </div>
   );
 };

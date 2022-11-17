@@ -7,5 +7,6 @@
   "new-note-add-btn": "Add new Note/Todo",
   "no-notes-placeholder": "No notes or todos here",
   "no-bookmarks-placeholder": "No bookmarks here",
-  "no-products-placeholder": "No products here"
+  "no-products-placeholder": "No products here",
+  "order-price-label": "Total Price"
 }

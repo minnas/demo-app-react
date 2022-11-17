@@ -7,7 +7,7 @@ import {
 
 type RuleFooterNames = "footer";
 type RuleHeaderNames = "header";
-type RuleContentNames = "content" | "newItem" | "textarea";
+type RuleContentNames = "content" | "newItem" | "textarea" | "bottomline";
 type RuleItemNames = "item";
 type RuleTitleNames = "title" | "icon";
 type RuleLayoutNames = "layout";
@@ -68,6 +68,18 @@ export const useContentStyles = createUseStyles<RuleContentNames, Itheme>({
     fontSize: "1.5rem",
     background: "transparent",
     color: theme.textColor,
+  }),
+  bottomline: (theme) => ({
+    display: "flex",
+    columnGap: "1rem",
+    padding: "1rem",
+    position: "fixed",
+    bottom: "10%",
+    right: "20%",
+    fontSize: "2rem",
+    fontWeight: 600,
+    color: theme.highlightColor,
+    border: `2px dashed ${theme.highlightColor}`,
   }),
 });
 export const useTitleStyles = createUseStyles<RuleTitleNames, Itheme>({

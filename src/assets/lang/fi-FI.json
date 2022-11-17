@@ -7,5 +7,6 @@
   "new-note-add-btn": "Lisää uusi",
   "no-notes-placeholder": "Ei tehtäviä täällä",
   "no-bookmarks-placeholder": "Ei kirjanmerkkejä täällä",
-  "no-products-placeholder": "Ei ostoksia täällä"
+  "no-products-placeholder": "Ei ostoksia täällä",
+  "order-price-label": "Summa"
 }
