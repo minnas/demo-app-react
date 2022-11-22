@@ -80,10 +80,8 @@ const FakeShop = (): ReactElement => {
     setLoading(true);
     search(ApiType.PRODUCTS)
       .then((items) => {
-        setTimeout(() => {
-          setProducts(items as Product[]);
-          setLoading(false);
-        }, 400);
+        setProducts(items as Product[]);
+        setLoading(false);
       })
       .catch((e: Error) => {
         console.log("Something went wrong here " + e);

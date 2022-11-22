@@ -76,7 +76,8 @@ const FakeNote = (): ReactElement => {
       title: content.length > 10 ? content.substring(0, 10) + "..." : content,
       body: content,
     } as RawItem);
-    setToastMsg("Added!");
+    setToastMsg(t("toast-msg-add"));
+
     setToastVisible(true);
     setNoteVisible(false);
     setTimeout(() => {

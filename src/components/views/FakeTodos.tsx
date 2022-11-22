@@ -78,10 +78,8 @@ const FakeTodos = (): ReactElement => {
     setLoading(true);
     search(ApiType.TODOS)
       .then((items) => {
-        setTimeout(() => {
-          setTodos(items as Item[]);
-          setLoading(false);
-        }, 400);
+        setTodos(items as Item[]);
+        setLoading(false);
       })
       .catch((e: Error) => {
         console.log("Something went wrong here " + e);
