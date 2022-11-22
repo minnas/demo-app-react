@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Toast from "@Components/tools/Toast";
 import DropDown, { ListItem } from "@Components/tools/DropDown";
+import { t } from "i18next";
 
 const FakePaint = (): ReactElement => {
   const theme = useTheme<Itheme>();
@@ -84,7 +85,7 @@ const FakePaint = (): ReactElement => {
 
   return (
     <div className={styles.wrapper}>
-      {toastVisible ? <Toast message="Saved" /> : ""}
+      {toastVisible ? <Toast message={t("toast-msg-saved")} /> : ""}
       <div className={styles.tools}>
         {colors.map((c: string, key: number) => (
           <span
