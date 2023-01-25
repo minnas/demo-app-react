@@ -1,17 +1,11 @@
-# Base stage
-FROM node:18
-
-RUN npm install vite@3.0.0 -g
-
+FROM node:16-alpine
 
 WORKDIR /app
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ADD . .
+COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
-ENV PORT=3000
-ENTRYPOINT ["/entrypoint.sh"]
 
-RUN yarn build
+COPY . .
+#RUN yarn build
 
+EXPOSE 3000
 CMD ["yarn", "dev"]

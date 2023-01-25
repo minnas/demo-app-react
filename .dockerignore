@@ -1,0 +1,12 @@
+.vscode
+
+node_modules
+
+.git
+
+.prettierrc
+.pretieriignore
+
+README.md
+
+Dockerfile
