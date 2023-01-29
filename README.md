@@ -21,3 +21,8 @@ Or in Docker 🐳
 1. docker build -t demo-app-react .
 2. docker run -d --rm -p 3000:3000 --name demo-app-react demo-app-react
 3. open http://localhost:3000/ in browser
+
+## Using Docker compose
+
+1. docker-compose up --build -d
+2. open url in browser http://localhost:3000/
