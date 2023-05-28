@@ -7,8 +7,6 @@
 # Demo App React
 
 This is a Small app done with React + Typescript + Vite.
-The app has some dummy component for testing some features.🦄
-The work continues
 
 To start, run these commands
 
